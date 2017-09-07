@@ -4,3 +4,11 @@ copyTest
 enable
 simple_example
 standard
+*aux
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+*.gz
+*.toc
