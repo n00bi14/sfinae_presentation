@@ -29,11 +29,3 @@ clean:
 	rm -rf $(BIN_simple_example) $(OBJ_simple_example)
 	rm -rf $(OBJ_bedingung) $(BIN_bedingung)
 	rm -rf $(OBJ_enable) $(BIN_enable)
-
-
-
-OBJ_copyTest = copyTest.o
-BIN_copyTest = copyTest
-copyTest: $(OBJ_copyTest)
-		$(CC) -o $(BIN_copyTest) $(OBJ_copyTest)
-		./$(BIN_copyTest)
