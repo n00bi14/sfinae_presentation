@@ -16,32 +16,70 @@
 \titlepage
 \end{frame} 
 
+%\begin{frame}
+%\frametitle{Inhaltsverzeichnis}
+%\tableofcontents
+%\end{frame} 
+
+
+\section{SFINAE} 
 \begin{frame}
-\frametitle{Inhaltsverzeichnis}
-\tableofcontents
-\end{frame} 
+\frametitle{SFINAE} 
+\begin{itemize}
 
+\item SFINAE - \glqq{}Substitution failure is not an error\grqq
+\begin{itemize}
+\item Acronym wurde 2002 von David Vandevoorde eingeführt
+\end{itemize}
 
-\section{Abschnitt Nr.1} 
-\begin{frame}
-\frametitle{Titel} 
-Die einzelnen Frames sollte einen Titel haben 
+\item Im Standard gibt es den Begriff nicht
+\begin{itemize}
+\item Der Standard beschreibt in § 14.8.2\footnote{\url{https://isocpp.org/std/the-standard}} den Sachverhalt
+\item Ohne aber ein explizites Acronym zu verwenden
+\end{itemize}
+
+\end{itemize}
+
 \end{frame}
-\subsection{Unterabschnitt Nr.1.1  }
-\begin{frame} 
-Denn ohne Titel fehlt ihnen was
-\end{frame}
 
 
-\section{Abschnitt Nr. 2} 
+%\subsection{Unterabschnitt Nr.1.1  }
+%\begin{frame} 
+%Denn ohne Titel fehlt ihnen was
+%\end{frame}
+
+
+\section{Worum geht es eigentlich?} 
 \subsection{Listen I}
 \begin{frame}
-\frametitle{Aufz\"ahlung}
+\frametitle{Worum geht es eigentlich?}
 \begin{itemize}
-\item Einf\"uhrungskurs in \LaTeX{}  
-\item Kurs 2  
-\item Seminararbeiten und Pr\"asentationen mit \LaTeX{} 
-\item Die Beamerclass 
+\item Situation
+
+\begin{itemize}
+\item Eine Menge von überladenenen Funktionen
+\item Alle sind Kandidaten für einen potentiellen Funktions-Aufruf
+\item Mindestens eine dieser Funktion ist ein Funktions-Template
+\item Die Template-Argumente werden deduziert
+\item Hierbei ergibt sich ein auf dem deduzierten Template-Typ beruhender Fehler in der Funktions-Schnittstelle
+\begin{itemize}
+\item Ein "Failure" beruhend auf der "Substitution"
+\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item =>
+\item Dies ist dann kein Compiler-Fehler
+\begin{itemize}
+\item Substitution Failure is not an Error
+\end{itemize}
+
+\item Sondern das Funktions-Template wird einfach aus der Menge der Kandidaten entfernt
+\begin{itemize}
+\item Der Compile-Vorgang läuft einfach weiter
+\end{itemize}
+
+\end{itemize} 
 \end{itemize} 
 \end{frame}
 
