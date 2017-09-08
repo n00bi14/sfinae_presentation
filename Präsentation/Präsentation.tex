@@ -267,4 +267,75 @@ int main()
 \end{frame}
 
 
+\section{SFINAE Gueltigkeit}
+\begin{frame}[fragile]
+\frametitle{C++ SFINAE - Gültigkeit}
+
+\begin{itemize}
+\item SFINAE bezieht sich nicht nur auf Failures in den Parametern
+
+\begin{itemize}
+\item Sondern auch auf
+
+\begin{itemize}
+\item Alle Typen im Funktions-Typ (Parameter, Rückgabe,…)
+\item Alle Typen in der Template-Parameter Deklaration
+\item Seit C++11 auch auf alle Ausdrücke in den Template- und Funktions-Typen \textcolor{red}{\textit{(Achtung - wird von MSVS noch nicht unterstützt!)}}
+
+
+\end{itemize}
+\end{itemize}
+
+\item Aber nicht in der Implementierung!
+\end{itemize}
+
+\begin{lstlisting}
+// Zusaetzlich auch kein Problem
+// - Return-Typ wirft Funktions-Template raus
+template<class T> typename T::type print(T t) 
+{
+   cout << "T=>: " << t << endl;
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+// Aenderung am bisherigem Funktions-Template in der Implementierung
+template<class T> void print(T t)
+{
+   typename T::type x;   // <= kein SFINAE => Compiler-Fehler
+   cout << "T: " << t << endl;
+}
+\end{lstlisting}
+\end{frame}
+
+
+\section{SFINAE Einsatzgebiete}
+\begin{frame}[fragile]
+\frametitle{C++ SFINAE - Einsatzgebiete}
+
+\begin{itemize}
+\item Array von void, Referenzen, Größe "0", usw. zu erzeugen
+\item Typ ungleich Enums und Klasse links von ::
+\item Nutzung eines Members, den es nicht gibt bzw. der sich in Typ oder Template-Parametern unterscheidet
+\item Zeiger auf Referenz
+\item Referenz auf void
+\item Zeiger auf Member von T, wenn T keine Klasse ist
+\item Ungültiger Typ für einen Non-Type Template-Parameter
+\item Unerlaubte Konvertierungen in Template-Ausdrücken oder Ausdrücken in Funktions-Deklarationen
+\item Funktions-Typ mit Rückgabe von Arrays
+\item Funktions-Typ mit cv-Qualifier (C++11)
+\item Funktions-Typ mit Rückgabe abstrakte Klasse (C++11)
+\item Instanziierung von Template-Parameter Packs mit unterschiedlicher Länge (C+11)
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
 \end{document}
