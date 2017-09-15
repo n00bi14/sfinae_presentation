@@ -327,13 +327,63 @@ template<class T> void print(T t)
 \item Funktions-Typ mit Rückgabe abstrakte Klasse (C++11)
 \item Instanziierung von Template-Parameter Packs mit unterschiedlicher Länge (C+11)
 \end{itemize}
-
-
 \end{frame}
 
 
 
+\section{SFINAE Beispiel2}
+\begin{frame}[fragile]
+\frametitle{C++ SFINAE - Beispiel II}
 
+\begin{itemize}
+\item Beispiel für Array der Größe 0
+\end{itemize}
+\end{frame}
+
+
+
+\section{SFINAE Beispiel3}
+\begin{frame}
+\frametitle{C++ SFINAE - Beispiel III}
+
+\begin{itemize}
+\item Beispiel für enable\_if
+\end{itemize}
+\end{frame}
+
+
+
+\section{SFINAE Beispiel4}
+\begin{frame}[fragile]
+\frametitle{C++ SFINAE - Beispiel IV}
+
+\begin{itemize}
+\item Kann man denn auch was Sinnvolles mit SFINAE machen?
+\item Oder ist es nur ein Sprach-Feature, damit bestehender Code nicht bricht?
+\begin{itemize}
+\item Letzlich der Sinn hinter § 14.8.2
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+
+
+\section{SFINAE Beispiel4}
+\begin{frame}[fragile]
+\frametitle{C++ SFINAE - Beispiel IV}
+
+\begin{itemize}
+\item Es wird interessant, wenn man Funktions-Templates mit einer allgemeinen Funktion mit einem Ellipsis Parameter kombiniert
+\begin{itemize}
+\item Denn: 
+\item Der Ellipsis Parameter hat die niedrigste Stufe in der Überladen-Hierarchie
+\item => Kommt also nur zum Tragen, wenn nichts anderes greift
+\item Aber er greift bei jedem Argument
+\end{itemize}
+
+\end{itemize}
+\end{frame}
 
 
 
