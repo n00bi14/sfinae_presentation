@@ -38,21 +38,21 @@ template<typename T> class hasToString
 };
 
 
-template<class T, typename std::enable_if<hasToString<T>::value>::type = 0> std::string ToString(T& t)
-{
-  return "Aus der Methode: " + t.toString();
-}
+
 
 template<class T, class Enable = void> std::string ToString(...)
 {
   return "Ellipsis...";
 }
 
-
+template<class T, typename std::enable_if<hasToString<T>::value>::type = 0> std::string ToString(T& t)
+{
+  return "Aus der Methode (enable_if): " + t.toString();
+}
 
 //template<class T, char (*)[sizeof(&T::toString) > 0] = nullptr> std::string ToString(T& t)
 //{
-//  return "Aus der Methode: " + t.toString();
+//  return "Aus der Methode (Array): " + t.toString();
 //}
 
 

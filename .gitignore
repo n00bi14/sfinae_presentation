@@ -4,6 +4,7 @@ copyTest
 enable
 simple_example
 standard
+chkToString
 *aux
 *.log
 *.nav
