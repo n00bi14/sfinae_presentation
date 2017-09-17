@@ -24,8 +24,16 @@ std: $(OBJ_enable)
 	$(CC) -o $(BIN_enable) $(OBJ_enable)
 	./$(BIN_enable)
 
+OBJ_chk = chkToString.o
+BIN_chk = chkToString
+
+chk: $(OBJ_chk)
+	$(CC) -o $(BIN_chk) $(OBJ_chk)
+	./$(BIN_chk)
+
 .PHONY: clean
 clean:
 	rm -rf $(BIN_simple_example) $(OBJ_simple_example)
 	rm -rf $(OBJ_bedingung) $(BIN_bedingung)
 	rm -rf $(OBJ_enable) $(BIN_enable)
+	rm -rf $(OBJ_chk) $(BIN_chk)
