@@ -21,6 +21,27 @@ template<int I> void div(char(*)[I % 2 == 1] = nullptr)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void test(...)
 {
     std::cout << "Catch-all overload called\n";
@@ -49,6 +70,26 @@ struct X { void f() {} };
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main()
 {
   div<3>();
@@ -62,8 +103,20 @@ int main()
 
 
 
+
+
+
+
+
+
+
+
+
+
+/*
   X x;
   test( x, &X::f);
   test(&x, &X::f);
   test(42, 1337);
+  */
 }
