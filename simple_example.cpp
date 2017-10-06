@@ -9,13 +9,6 @@ public:
     typedef bool type;
 };
 
-/*class B
-{
-public:
-    typedef bool type111;
-};*/
-
-
 void print(long l)
 {
     cout << "l: " << l << endl;
@@ -58,6 +51,4 @@ int main()
     print(n);
     print(&n);
     print<A>(true);
-    //print<int>(2);
-    //print<B>(false);
 }
